@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Règles du Serveur Discord</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            color: rgb(246, 246, 245);
+            background: black;
+        }
+        .stars {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            margin-top: 50px;
+            border-radius: 10px;
+            height: 80vh;
+            overflow-y: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #FFD700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .verify-button {
+            background-color: #28a745;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2em;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .verify-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <h1>Règles du Serveur Discord</h1>
+        <ul>
+            <li>Règle 1: Respectez les autres membres.</li>
+            <li>Règle 2: Pas de spam ou de publicité non sollicitée.</li>
+            <li>Règle 3: Pas de contenu NSFW.</li>
+            <li>Règle 4: Utilisez les canaux appropriés pour vos discussions.</li>
+            <li>Règle 5: Suivez les directives des modérateurs.</li>
+            <li>Règle 6: Pas de comportements toxiques ou de harcèlement.</li>
+            <li>Règle 7: Évitez les sujets sensibles comme la politique ou la religion.</li>
+            <li>Règle 8: Protégez votre vie privée et celle des autres.</li>
+            <li>Règle 9: Utilisez un langage approprié.</li>
+            <li>Règle 10: Amusez-vous et profitez de la communauté !</li>
+            <li>Règle 11: Partagez des informations véridiques.</li>
+            <li>Règle 12: Pas de flood dans les canaux de discussion.</li>
+            <li>Règle 13: Pas de messages en majuscules uniquement (considéré comme crier).</li>
+            <li>Règle 14: Pas de discours haineux ou discriminatoire.</li>
+            <li>Règle 15: Respectez les décisions des administrateurs.</li>
+            <li>Règle 16: Signalez tout comportement suspect aux modérateurs.</li>
+            <li>Règle 17: N'utilisez pas de bots de manière abusive.</li>
+            <li>Règle 18: Pas de discussions sur le piratage ou d'activités illégales.</li>
+            <li>Règle 19: Gardez les conversations pertinentes au sujet du canal.</li>
+            <li>Règle 20: Aidez les nouveaux membres à s'intégrer dans la communauté.</li>
+            <li>Règle 21: Pas de contenu politique ou religieux provocateur.</li>
+            <li>Règle 22: Respectez les différentes opinions et points de vue.</li>
+            <li>Règle 23: Maintenez un environnement convivial et inclusif.</li>
+            <li>Règle 24: Utilisez les mentions @ de manière appropriée.</li>
+            <li>Règle 25: Évitez de poster des spoilers sans avertissement.</li>
+            <li>Règle 26: Contribuez positivement aux discussions.</li>
+            <li>Règle 27: Pas de harcèlement ou intimidation.</li>
+            <li>Règle 28: Respectez les règles spécifiques de chaque canal.</li>
+            <li>Règle 29: Les promotions doivent être approuvées par un modérateur.</li>
+            <li>Règle 30: En cas de doute, demandez à un modérateur.</li>
+        </ul>
+        <div class="button-container">
+            <a href="https://discord.gg/VRsESWazu9" class="verify-button">Vérifier le règlement</a>
+        </div>
+    </div>
+
+    <script>
+        const starDensity = 0.0025;
+        const speedCoeff = 0.05;
+
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = window.innerWidth * window.innerHeight * starDensity;
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 2;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.position = 'absolute';
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function animateStars() {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                let top = parseFloat(star.style.top);
+                top += speedCoeff;
+                if (top > 100) {
+                    top = 0;
+                }
+                star.style.top = `${top}vh`;
+            });
+            requestAnimationFrame(animateStars);
+        }
+
+        generateStars();
+        animateStars();
+    </script>
+</body>
+</html>
